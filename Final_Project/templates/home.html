@@ -27,79 +27,20 @@
 
 	
 <div class="row">
+
+	{% for product in products %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/1006.jpg' %}"> </a>
+			<a href="./product-detail.html" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
 			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Raice Colling</a>
-				<div class="price mt-1">$60.000</div> <!-- price-wrap.// -->
+				<a href="./product-detail.html" class="title">{{product.product_name}}</a>
+				<div class="price mt-1">{{product.price}}</div> <!-- price-wrap.// -->
 			</figcaption>
 		</div>
 	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/02.png' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Corriente con Pollo</a>
-				<div class="price mt-1">$14.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/800.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Porcion Arroz especial</a>
-				<div class="price mt-1">$13.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/700.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Porcion Arroz Valenciana</a>
-				<div class="price mt-1">$8.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
+	{% endfor %}
 	
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/01.png' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">ChopSuey Pequeño</a>
-				<div class="price mt-1">$19.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/500.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Low Mein Pequeño</a>
-				<div class="price mt-1">$22.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/1002.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Chow Mein Pequeño</a>
-				<div class="price mt-1">$22.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="/1004.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Spaguetti Pequeño</a>
-				<div class="price mt-1">$20.000</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
+
 </div> <!-- row.// -->
 
 </div><!-- container // -->
