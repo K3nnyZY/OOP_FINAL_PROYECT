@@ -1,0 +1,49 @@
+@startuml
+
+left to right direction
+class Product{
+food_id: str
+name: str
+price: float
+food_description: str
+deleteProduct()
+addProduct()
+}
+
+class Food{
+food_id: str
+quantity: int
+checkFood()
+}
+
+class Commission{
+food_id: str
+Total_buy: float
+User_name: str
+buyer_mail: str
+buyer_phone: str
+Status()
+}
+
+class Food_Basket{
+Food_Basket: List
+total_food()
+}
+
+class Basket{
+total_busket()
+add_food(product_id: str, quantity: int)
+remove_food(Food_basket)
+}
+
+Food -left-- Product
+Commission -left--|> Food 
+Commission -down-- Food_Basket : creates <
+Food_Basket -left-- Basket
+Product <|-- Basket
+
+Data_Base <|---down Product
+Data_Base <|---down Food
+Data_Base <|---down Commission
+
+@enduml
