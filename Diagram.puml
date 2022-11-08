@@ -16,15 +16,6 @@ quantity: int
 checkFood()
 }
 
-class Commission{
-food_id: str
-Total_buy: float
-User_name: str
-buyer_mail: str
-buyer_phone: str
-Status()
-}
-
 class Food_Basket{
 Food_Basket: List
 total_food()
