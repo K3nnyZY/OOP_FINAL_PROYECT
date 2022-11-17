@@ -1,40 +1,97 @@
 @startuml
 
-left to right direction
+class LogEntry{
+Id: AutoField
+action_flag: PositiveSmallIntegerField
+action_time: DateTimeField
+object_repr
+user: ForeignKey(id)
+}
+
+class User<AbstractUser>{
+Id: AutoField
+date_joined: DateTimeField
+is_active: BooleanField
+is_staff: BooleanField
+is_superuser: BooleanField
+password: CharField
+username: CharField
+}
+
+class Group{
+Id: AutoField
+name: CharField
+}
+
+class AbstractUser<AbstractBaseUser,PermissionsMixin>{
+date_joined: DateTimeField
+is_active: BooleanField
+is_staff: BooleanField
+password: CharField
+username: CharField
+}
+
+class Permission{
+Id: AutoField
+content_type: ForeignKey(id)
+codename: CharField
+name: CharField
+}
+
+class ContentType{
+Id: AutoField
+app_label: CharField
+model: CharField
+}
+
+class Session{
+session_key: CharField
+}
+
+class AbstractBaseSession{
+expire_date: DateTimeField
+session_data: TextField
+}
+
+class CartItem{
+Id: BigAutoField
+cart: ForeignKey(id)
+product: ForeignKey(id)
+}
+
+class Cart{
+Id: BigAutoField
+}
+
 class Product{
-food_id: str
-name: str
-price: float
-food_description: str
-deleteProduct()
-addProduct()
+Id: BigAutoField
+category: ForeignKey(Id)
 }
 
-class Food{
-food_id: str
-quantity: int
-checkFood()
+class Category{
+Id: BigAutoField
+category_name: CharField
+slug: CharField
 }
 
-class Food_Basket{
-Food_Basket: List
-total_food()
-}
 
-class Basket{
-total_busket()
-add_food(product_id: str, quantity: int)
-remove_food(Food_basket)
-}
 
-Food -left-- Product
-Commission -left--|> Food 
-Commission -down-- Food_Basket : creates <
-Food_Basket -left-- Basket
-Product <|-- Basket
 
-Data_Base <|---down Product
-Data_Base <|---down Food
-Data_Base <|---down Commission
 
+CartItem *-- Cart : cart(cartitem)
+CartItem *-- Product  : product(cartitem)
+
+Product *-- Category : category(product)
+
+Session --|> AbstractBaseSession
+
+LogEntry *-- User : user(logentry)
+User *--* Group : group(user)
+User -right-|> AbstractUser : abstract inheritance
+AbstractUser --|> AbstractBaseUser
+AbstractUser --|> PermissionsMixin
+Group *--* Permission : permission(group)
+User *--* Permission
+Permission *-- ContentType : content_type(permission)
+LogEntry *-- ContentType : content_type(logentry)
 @enduml
