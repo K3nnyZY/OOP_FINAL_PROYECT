@@ -20,3 +20,27 @@ este aplicativo web el cliente puede:
 
 ### Diagrama UML 
 <img src = "DiagramaUML.png">
+
+### como instalar
+
+1. Ingresar enlace el repositorio de Github  
+
+2. Seleccionar la parte de code y copiar el HTTPS 
+
+3. Ingresar a VsCode y clonar el repositorio: git clone el HTTPS. 
+
+4. Instalar los paquetes de django, pillow: 
+
+- pip3 install django 
+
+- pip3 install django-extensions 
+
+- pip3 install pillow 
+
+5. Entrar a la carpeta de src en el terminad: cd src 
+
+6. En el terminal Escribir python3 manage.py runserver 
+
+7. En cualquier browser escribir localhost:8000 
+
+8. Si desea mirar y manejar la base de datos de sqlite3 se puede descargar mediante este link: https://www.sqlite.org/download.html 
